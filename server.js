@@ -26,6 +26,12 @@ const app = express();
 // NOTE This can be used instead  of body-parser middleware
 app.use(express.json());
 
+//Morgan middleware
+
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
+
 //Initializing mongodb
 
 connectDB();
